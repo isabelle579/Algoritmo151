@@ -46,7 +46,7 @@
         .mensagem {
             margin-top: 20px;
             font-size: 18px;
-            color: #264653;
+            color: red;
         }
     </style>
 </head>
@@ -55,24 +55,22 @@
         <h2>Qual é o seu nome?</h2>
         <input type="text" id="nome" placeholder="Digite seu nome aqui" />
         <br />
-        <button onclick="mostrarMensagem()">Enviar</button>
+        <button onclick="enviarNome()">Enviar</button>
         <div class="mensagem" id="mensagem"></div>
     </div>
 
     <script>
-        function mostrarMensagem() {
+        function enviarNome() {
             const nome = document.getElementById('nome').value.trim();
             const mensagemDiv = document.getElementById('mensagem');
 
             if (nome === '') {
                 mensagemDiv.textContent = 'Por favor, digite seu nome.';
-                mensagemDiv.style.color = 'red';
             } else {
-                mensagemDiv.style.color = '#264653';
-                mensagemDiv.textContent = `Olá ${nome}, é um prazer te conhecer!`;
+                // Redireciona para a página de boas-vindas passando o nome via query string
+                window.location.href = `boasvindas.html?nome=${encodeURIComponent(nome)}`;
             }
         }
     </script>
 </body>
 </html>
-
