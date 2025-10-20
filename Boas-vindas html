@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bem-vindo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e0f7fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="boasVindas"></h1>
+    </div>
+
+    <script>
+        // Função para pegar os parâmetros da URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        const nome = getQueryParam('nome');
+
+        const boasVindasEl = document.getElementById('boasVindas');
+
+        if (nome) {
+            boasVindasEl.textContent = `Olá, ${nome}! Seja bem-vindo(a)!`;
+        } else {
+            boasVindasEl.textContent = 'Olá! Nome não informado.';
+        }
+    </script>
+</body>
+</html>
